@@ -2,7 +2,7 @@
 
 import Section from "@/components/section";
 import Terminal from "@/components/terminal";
-import { Box, BoxProps, Card, CardActionArea, CardContent, CardHeader, CardMedia, Grid, Slide, Stack, Typography } from "@mui/material";
+import { Box, BoxProps, Card, CardActionArea, CardContent, CardHeader, CardMedia, Grid, GridProps, Slide, Stack, Typography } from "@mui/material";
 import React, { ReactNode, useEffect, useState } from "react";
 
 import './globals.css';
@@ -59,7 +59,14 @@ function Flicker({ children, ...props}: any) {
     );
 }
 
-function Typing({children, text, onAnimationEnd, delay=10, ...props}: {children?: any, delay?: number, onAnimationEnd?: () => void, text: string, props?: any}) {
+type TypingProps = {
+    children?: any;
+    text: string;
+    onAnimationEnd?: any;
+    delay?: number;
+} & GridProps;
+
+function Typing({children, text, onAnimationEnd, delay=10, ...props}: TypingProps) {
     const [currentIndex, setCurrentIndex] = useState(0);
     const [currentText, setCurrentText] = useState('');
 
@@ -76,7 +83,7 @@ function Typing({children, text, onAnimationEnd, delay=10, ...props}: {children?
         return () => clearTimeout(timeout);
     });
     
-    return <span {...props}>{currentText}</span>
+    return <Grid container {...props}>{currentText.split(' ').map((item, i) => <a key={i} style={{padding: '0.125em'}}>{item}</a>)}</Grid>
 }
 
 type ExperimentProps = {
@@ -113,7 +120,7 @@ export default function Home() {
             <Stack direction='row' justifyContent='center'>
                 <Terminal sx={{width: '90%'}}>
                     <Typography variant='h3' gutterBottom>Olá,</Typography>
-                    <Stack direction='row'>
+                    <Grid container>
                     <Typography variant='h5'>
                         <Typing text='Sou Marcel Guinhos, e eu desenvolvo para&nbsp;' onAnimationEnd={() => setTypingIndex(typingIndex +1)}/></Typography>
                         {typingIndex > 0? 
@@ -123,7 +130,7 @@ export default function Home() {
                             <Typography variant='h5'>Desktop</Typography>
                         </Flicker>
                         : null}
-                    </Stack>
+                    </Grid>
                 </Terminal>
             </Stack>
             <Section title='Sobre mim' textAlign='center'>
@@ -133,13 +140,13 @@ export default function Home() {
                 </Box>
             </Section>
             <Section title='Hábilidades' textAlign='center'>
-                <Stack direction='row' justifyContent={'center'}>
-                    <Skill media={<SkillPythonLogoSvg/>} label='Python'/>
-                    <Skill media={<SkillJavascriptLogoSvg/>} label='JavaScript'/>
-                    <Skill media={<SkillRustLogoSvg/>} label='Rust'/>
-                    <Skill media={<SkillWasmLogoSvg/>} label='WebAssembly'/>
-                    <Skill media={<SkillKivyLogoSvg/>} label='Kivy'/>
-                </Stack>
+                <Grid container justifyContent='center'>
+                    <Grid item><Skill media={<SkillPythonLogoSvg/>} label='Python'/></Grid>
+                    <Grid item><Skill media={<SkillJavascriptLogoSvg/>} label='JavaScript'/></Grid>
+                    <Grid item><Skill media={<SkillRustLogoSvg/>} label='Rust'/></Grid>
+                    <Grid item><Skill media={<SkillWasmLogoSvg/>} label='WebAssembly'/></Grid>
+                    <Grid item><Skill media={<SkillKivyLogoSvg/>} label='Kivy'/></Grid>
+                </Grid>
             </Section>
             <Section title='Meus experimentos' textAlign='center'>
                 <Box textAlign='center'>
