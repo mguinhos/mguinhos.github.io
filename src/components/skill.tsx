@@ -164,13 +164,13 @@ export function SkillRustLogoSvg() {
 
 export function Skill({ media, label = '...', ...props }: any) {
     return (
-        <Card {...props} elevation={10} sx={{ padding: 2, maxHeight: '20cm', borderRadius: '5mm' }}>
-            <CardMedia sx={{ height: '4cm' }}>
+        <Box className='skill' {...props} sx={{ padding: 2, maxHeight: '10cm', borderRadius: '5mm' }}>
+            <CardMedia sx={{ height: '2cm' }}>
                 {media}
             </CardMedia>
             <CardContent>
                 <Typography variant="h5" textAlign="center">{label}</Typography>
             </CardContent>
-        </Card>
+        </Box>
     );
 }

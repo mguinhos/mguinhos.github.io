@@ -6,13 +6,18 @@ import '@fontsource/roboto/300.css';
 import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
+import './globals.css';
 
 import Navbar from "../components/navbar";
+import Footer from "@/components/footer";
 
 const DARK_THEME = createTheme({
     palette: {
         mode: "dark",
     },
+    typography: {
+        fontFamily: 'pixelify_sans'
+    }
 });
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -24,9 +29,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                     <meta name="viewport" content="width=device-width, initial-scale=1" />
                 </head>
                 <body>
-                    <Box>
-                        <Navbar />
+                    <Box style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
+                        <Navbar/>
                         {children}
+                        <Footer/>
                     </Box>
                 </body>
             </ThemeProvider>

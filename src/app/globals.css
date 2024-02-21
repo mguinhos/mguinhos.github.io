@@ -1,0 +1,43 @@
+@font-face {
+    font-family: pixelify_sans;
+    src: url(pixelify_sans.ttf);
+}
+
+body {
+    font-family: pixelify_sans;
+}
+
+.flicker {
+    animation: flickerBubble 1s;
+}
+
+
+@keyframes flickerBubble {
+    0% {
+        transform: translateY(0em);
+    }
+    30% {
+        transform: translateY(-2em);
+    }
+    50% {
+        transform: translateY(0em);
+    }
+}
+
+
+.skill, .experiment {
+    
+    transition: all 0.25s ease-in-out;
+}
+
+.skill:hover {
+    transform: translateY(-5mm);
+}
+
+.experiment:hover {
+    transform: translateY(-5mm);
+}
+
+canvas {
+    background-color: transparent;
+}
