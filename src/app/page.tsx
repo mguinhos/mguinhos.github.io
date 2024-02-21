@@ -133,10 +133,10 @@ export default function Home() {
                     </Grid>
                 </Terminal>
             </Stack>
+            <IconBox name='heart'/>
             <Section title='Sobre mim' textAlign='center'>
                 <Box textAlign='center'>
                     <Typing text='Programador júnior dedicado que quer criar um mundo melhor com café, código e arte.' onAnimationEnd={() => setTypingIndex(typingIndex +1)}/>
-                    <IconBox name='heart'/>
                 </Box>
             </Section>
             <Section title='Hábilidades' textAlign='center'>
@@ -148,10 +148,10 @@ export default function Home() {
                     <Grid item><Skill media={<SkillKivyLogoSvg/>} label='Kivy'/></Grid>
                 </Grid>
             </Section>
+            <IconBox name='cup'/>
             <Section title='Meus experimentos' textAlign='center'>
                 <Box textAlign='center'>
                     <Typing text='Aqui estão alguns demos interativos para executar no navegador.' onAnimationEnd={() => setTypingIndex(typingIndex +1)}/>
-                    <IconBox name='cup'/>
                     <Grid container spacing={'1mm'} columns={{ xs: 4, md: 12 }}>
                         <Experiment href='https://mguinhos.github.io/Particles' thumbnail='particles.png' title='Particles' description='Uma sandbox de particulas interativo feito com javascript'/>
                         <Experiment href='https://mguinhos.github.io/react-calculator' thumbnail='react_calculator.png' title='React Calculator' description='Calculadora em react feita como exercicio.'/>
