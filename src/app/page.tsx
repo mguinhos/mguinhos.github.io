@@ -139,6 +139,7 @@ export default function Home() {
                     <Typing text='Programador júnior dedicado que quer criar um mundo melhor com café, código e arte.' onAnimationEnd={() => setTypingIndex(typingIndex +1)}/>
                 </Box>
             </Section>
+            <IconBox name='hammer'/>
             <Section title='Hábilidades' textAlign='center'>
                 <Grid container justifyContent='center'>
                     <Grid item><Skill media={<SkillPythonLogoSvg/>} label='Python'/></Grid>
